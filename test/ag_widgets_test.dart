@@ -7,7 +7,6 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockAgWidgetsPlatform
     with MockPlatformInterfaceMixin
     implements AgWidgetsPlatform {
-
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
 }
