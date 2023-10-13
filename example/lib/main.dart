@@ -35,6 +35,27 @@ class _MyAppState extends State<MyApp> {
               Text("Example of IconImage()"),
               SizedBox(height: 16),
               "assets/images/placeholder.jpg".iconImage(),
+
+              SizedBox(height: 32),
+              Text(
+                'Welcome to Custom Divider Example',
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 20),
+              CustomDivider(
+                weight: 2.0,
+                color: Colors.blue,
+                style: DividerStyle.gradientLine,
+                colorList: [Colors.blue, Colors.green],
+                endIndent: 16.0,
+                indent: 16.0,
+                strokeCap: StrokeCap.round,
+              ),
+              SizedBox(height: 20),
+              Text(
+                'This is a custom divider with a gradient line!',
+                style: TextStyle(fontSize: 18),
+              ),
             ],
           ),
         ),

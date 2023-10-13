@@ -1,6 +1,6 @@
 name: ag_widgets
-description: This package will contain daily to use smart widgets
-version: 0.0.2
+description: Enhance your apps with our versatile smart widgets. Designed for daily development projects, they streamline workflows and boost functionality.
+version: 0.0.4
 #homepage: https://www.ankitgada.in
 repository: https://github.com/dev-ankit1207/ag_widgets
 issue_tracker: https://github.com/dev-ankit1207/ag_widgets/issues
@@ -11,6 +11,8 @@ environment:
 
 dependencies:
   flutter_svg: ^2.0.7
+  nb_utils: ^6.0.4
+  simple_animations: ^5.0.2
 
   flutter:
     sdk: flutter
