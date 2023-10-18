@@ -37,7 +37,13 @@ class CustomDivider extends StatelessWidget {
       height: weight,
       width: context.width(),
       child: CustomPaint(
-        painter: _DividerPainter(color, style, LinearGradient(colors: colorList.validate()), weight, spacing, strokeCap),
+        painter: _DividerPainter(
+            color,
+            style,
+            LinearGradient(colors: colorList.validate()),
+            weight,
+            spacing,
+            strokeCap),
       ),
     );
   }
@@ -51,7 +57,8 @@ class _DividerPainter extends CustomPainter {
   final int? _spacing;
   final StrokeCap _strokeCap;
 
-  _DividerPainter(Color color, this._style, this._gradient, this._weight, this._spacing, this._strokeCap)
+  _DividerPainter(Color color, this._style, this._gradient, this._weight,
+      this._spacing, this._strokeCap)
       : _paint = Paint()
           ..color = color
           ..strokeCap = _strokeCap
@@ -70,7 +77,8 @@ class _DividerPainter extends CustomPainter {
     }
   }
 
-  void _drawPlainLine(Canvas canvas, Size size, double? weight, StrokeCap _strokeCap) {
+  void _drawPlainLine(
+      Canvas canvas, Size size, double? weight, StrokeCap _strokeCap) {
     final startPoint = Offset(0, size.height / 2);
     final endPoint = Offset(size.width, size.height / 2);
     canvas.drawLine(startPoint, endPoint, _paint);

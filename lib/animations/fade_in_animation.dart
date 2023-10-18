@@ -13,7 +13,8 @@ class FadeInAnimation extends StatelessWidget {
   final Widget child; // The child widget to be animated
 
   // Constructor for the FadeInAnimation widget
-  const FadeInAnimation({Key? key, required this.delay, required this.child}) : super(key: key);
+  const FadeInAnimation({Key? key, required this.delay, required this.child})
+      : super(key: key);
 
   // Build method to create the animation widget
   @override
@@ -42,9 +43,13 @@ class FadeInAnimation extends StatelessWidget {
       // The child widget to be animated
       builder: (_, Movie value, Widget? child) {
         return Opacity(
-          opacity: value.get<double>(AniProps.opacity), // Apply opacity animation
+          opacity:
+              value.get<double>(AniProps.opacity), // Apply opacity animation
           child: Transform.translate(
-            offset: Offset(0, value.get<double>(AniProps.translateY)), // Apply translation animation
+            offset: Offset(
+                0,
+                value.get<double>(
+                    AniProps.translateY)), // Apply translation animation
             child: child,
           ),
         );

@@ -13,7 +13,8 @@ class CircleWidget extends StatelessWidget {
   // Constructor for the CircleWidget class
   CircleWidget({
     this.size = 50.0, // Default size is 50.0
-    this.backgroundColor = Colors.transparent, // Default background color is transparent
+    this.backgroundColor =
+        Colors.transparent, // Default background color is transparent
     this.borderColor, // Border color (default is null)
     this.borderWidth = 0.0, // Default border width is 0.0
     this.child, // Child widget (default is null)
@@ -27,7 +28,10 @@ class CircleWidget extends StatelessWidget {
       decoration: ShapeDecoration(
         color: backgroundColor,
         shadows: shadows,
-        shape: OvalBorder(side: BorderSide(width: borderWidth, color: borderColor ?? context.dividerColor)),
+        shape: OvalBorder(
+            side: BorderSide(
+                width: borderWidth,
+                color: borderColor ?? context.dividerColor)),
       ),
       child: child,
     ).withSize(width: size, height: size);

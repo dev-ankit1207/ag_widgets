@@ -43,7 +43,8 @@ class ViewAllButton extends StatelessWidget {
                 Text(
                   // Display the title, validating for null or empty string
                   title.validate(),
-                  style: titleTextStyle ?? boldTextStyle(size: textSize, color: textColor),
+                  style: titleTextStyle ??
+                      boldTextStyle(size: textSize, color: textColor),
                 ),
           ),
           if (showViewAll)
@@ -53,10 +54,12 @@ class ViewAllButton extends StatelessWidget {
               child: Row(
                 children: [
                   // Display "View All" text with provided style or default
-                  Text(viewAllText ?? "View All", style: secondaryTextStyle(size: 12)),
+                  Text(viewAllText ?? "View All",
+                      style: secondaryTextStyle(size: 12)),
                   if (!hideViewAllIcon)
                     // Optionally display an arrow icon (if not hidden)
-                    Icon(Icons.arrow_forward_ios_rounded, color: textSecondaryColorGlobal, size: 10),
+                    Icon(Icons.arrow_forward_ios_rounded,
+                        color: textSecondaryColorGlobal, size: 10),
                 ],
               ),
             ),

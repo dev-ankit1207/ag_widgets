@@ -1,4 +1,4 @@
-## 0.0.7
+## 0.1.0
 - Added View All Widget
 - Added Circle Widget
 

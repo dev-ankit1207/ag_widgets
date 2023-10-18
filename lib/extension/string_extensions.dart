@@ -22,7 +22,8 @@ extension StringExtension on String {
         fit: fit ?? BoxFit.contain,
         color: color,
         errorBuilder: (context, error, stackTrace) => Placeholder(
-          color: imagePlaceholderColor[Random().nextInt(imagePlaceholderColor.length)],
+          color: imagePlaceholderColor[
+              Random().nextInt(imagePlaceholderColor.length)],
           fallbackHeight: height ?? 24,
           fallbackWidth: width ?? 24,
           strokeWidth: 1,
@@ -40,7 +41,8 @@ extension StringExtension on String {
       fit: fit ?? BoxFit.cover,
       color: color,
       errorBuilder: (context, error, stackTrace) => Placeholder(
-        color: imagePlaceholderColor[Random().nextInt(imagePlaceholderColor.length)],
+        color: imagePlaceholderColor[
+            Random().nextInt(imagePlaceholderColor.length)],
         fallbackHeight: height ?? 24,
         fallbackWidth: width ?? 24,
         strokeWidth: 1,
@@ -68,7 +70,8 @@ extension StringExtension on String {
         width: width ?? 24,
         fit: fit ?? BoxFit.contain,
         placeholderBuilder: (context) => Placeholder(
-          color: imagePlaceholderColor[Random().nextInt(imagePlaceholderColor.length)],
+          color: imagePlaceholderColor[
+              Random().nextInt(imagePlaceholderColor.length)],
           fallbackHeight: height ?? 24,
           fallbackWidth: width ?? 24,
           strokeWidth: 1,
@@ -86,7 +89,8 @@ extension StringExtension on String {
       fit: fit ?? BoxFit.cover,
       placeholderBuilder: (context) {
         return Placeholder(
-          color: imagePlaceholderColor[Random().nextInt(imagePlaceholderColor.length)],
+          color: imagePlaceholderColor[
+              Random().nextInt(imagePlaceholderColor.length)],
           fallbackHeight: height ?? 24,
           fallbackWidth: width ?? 24,
           strokeWidth: 1,
