@@ -1,3 +1,7 @@
+## 0.0.7
+- Added View All Widget
+- Added Circle Widget
+
 ## 0.0.5
 - Added Name Initial Widget
 - Added Custom Divider (4 Different types of divider)
