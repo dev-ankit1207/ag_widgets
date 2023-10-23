@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:ag_widgets/utils.dart';
+import 'package:ag_widgets/utils/enmus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -21,9 +22,8 @@ extension StringExtension on String {
         width: width ?? 24,
         fit: fit ?? BoxFit.contain,
         color: color,
-        errorBuilder: (context, error, stackTrace) => Placeholder(
-          color: imagePlaceholderColor[
-              Random().nextInt(imagePlaceholderColor.length)],
+        errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) => Placeholder(
+          color: imagePlaceholderColor[Random().nextInt(imagePlaceholderColor.length)],
           fallbackHeight: height ?? 24,
           fallbackWidth: width ?? 24,
           strokeWidth: 1,
@@ -41,8 +41,7 @@ extension StringExtension on String {
       fit: fit ?? BoxFit.cover,
       color: color,
       errorBuilder: (context, error, stackTrace) => Placeholder(
-        color: imagePlaceholderColor[
-            Random().nextInt(imagePlaceholderColor.length)],
+        color: imagePlaceholderColor[Random().nextInt(imagePlaceholderColor.length)],
         fallbackHeight: height ?? 24,
         fallbackWidth: width ?? 24,
         strokeWidth: 1,
@@ -70,8 +69,7 @@ extension StringExtension on String {
         width: width ?? 24,
         fit: fit ?? BoxFit.contain,
         placeholderBuilder: (context) => Placeholder(
-          color: imagePlaceholderColor[
-              Random().nextInt(imagePlaceholderColor.length)],
+          color: imagePlaceholderColor[Random().nextInt(imagePlaceholderColor.length)],
           fallbackHeight: height ?? 24,
           fallbackWidth: width ?? 24,
           strokeWidth: 1,
@@ -89,8 +87,7 @@ extension StringExtension on String {
       fit: fit ?? BoxFit.cover,
       placeholderBuilder: (context) {
         return Placeholder(
-          color: imagePlaceholderColor[
-              Random().nextInt(imagePlaceholderColor.length)],
+          color: imagePlaceholderColor[Random().nextInt(imagePlaceholderColor.length)],
           fallbackHeight: height ?? 24,
           fallbackWidth: width ?? 24,
           strokeWidth: 1,
@@ -101,5 +98,22 @@ extension StringExtension on String {
         );
       },
     );
+  }
+
+  String wrapWithBracket(BracketType type) {
+    switch (type) {
+      case BracketType.Rounded:
+        return "($this)";
+      case BracketType.Square:
+        return "[$this]";
+      case BracketType.Curly:
+        return "{$this}";
+      case BracketType.Angle:
+        return "<$this>";
+      case BracketType.SingleQuote:
+        return "'$this'";
+      case BracketType.DoubleQuote:
+        return "\"$this\"";
+    }
   }
 }

@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
 
 List<Color> imagePlaceholderColor = [
-  ///- Red
+  /// Red
   Color(0xFFE57373),
 
-  ///- Amber
+  /// Amber
   Color(0xFFFFC107),
 
-  ///- Green
+  /// Green
   Color(0xFF81C784),
 
-  ///- Blue
+  /// Blue
   Color(0xFF64B5F6),
 
-  ///- Deep Orange
+  /// Deep Orange
   Color(0xFFFF7043),
 
-  ///- Purple
+  /// Purple
   Color(0xFF9575CD),
 
-  ///- Teal
+  /// Teal
   Color(0xFF4DB6AC),
 
-  ///- Yellow
+  /// Yellow
   Color(0xFFFFD54F),
 
-  ///- Indigo
+  /// Indigo
   Color(0xFF7986CB),
 
-  ///- Brown
+  /// Brown
   Color(0xFFA1887F)
 ];

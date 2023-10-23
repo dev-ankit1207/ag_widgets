@@ -1,4 +1,8 @@
-# ag_widgets
+
+
+# overview
+
+## ag_widgets
 **ag_widgets** is a comprehensive package that offers a treasure trove of versatile, user-friendly smart widgets designed for daily use in your development projects. Elevate your apps and streamline your workflow with a rich array of customizable widgets for various tasks and functionalities.
 
 ## Getting Started
@@ -77,18 +81,18 @@ All" text. (Default is false)
 
 ```dart
 ViewAllButton(
-  title: "Recent Articles",
-  onTap: () {
-    // Navigate to the list of recent articles
-    Navigator.push(context, MaterialPageRoute(builder: (context) => RecentArticlesScreen()));
-  },
-  titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-  textSize: 20,
-  viewAllText: "See All Articles",
-  textColor: Colors.blue,
-  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-  showViewAll: true,
-  hideViewAllIcon: false,
+title: "Recent Articles",
+onTap: () {
+// Navigate to the list of recent articles
+Navigator.push(context, MaterialPageRoute(builder: (context) => RecentArticlesScreen()));
+},
+titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+textSize: 20,
+viewAllText: "See All Articles",
+textColor: Colors.blue,
+padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+showViewAll: true,
+hideViewAllIcon: false,
 )
 ```
 
@@ -102,10 +106,76 @@ The `CircleWidget` class is a custom Flutter widget that provides a circular con
 
 ```dart
 CircleWidget({
-  this.size = 50.0,
-  this.backgroundColor = Colors.transparent,
-  this.borderColor,
-  this.borderWidth = 0.0,
-  this.child,
-  this.shadows,
+   this.size = 50.0,
+   this.backgroundColor = Colors.transparent,
+   this.borderColor,
+   this.borderWidth = 0.0,
+   this.child,
+   this.shadows,
 });
+```
+
+### Wrap With Bracket Icon Image
+
+##### Description
+
+The `wrapWithBracket` function is a utility function that takes an argument of the `BracketType` enum and wraps the string it's called on with brackets or quotes based on the specified `BracketType`. It provides a simple way to format strings within brackets or quotes as needed.
+
+#### Function Signature
+
+```dart
+String text = "Hello, World!";
+String wrappedText = text.wrapWithBracket(BracketType.SingleQuote);
+print(wrappedText); // Outputs: 'Hello, World!'
+```
+
+#### Enum Summary
+
+##### App Theme
+- Light, Dark, systemDefault
+
+##### Screen Orientation
+- Portrait, Landscape, Auto
+
+##### User Account Status
+- Active, Inactive, Banned
+
+##### Sorting Order
+- Ascending, Descending
+
+##### Task Priority
+- Low, Medium, High, Urgent
+
+##### Reminder Frequency
+- Daily, Weekly, Monthly, Yearly
+
+##### Gender
+- Male, Female, Other, PreferNotToSay
+
+##### Payment Status
+- Paid, Pending, Failed, Refunded
+
+##### Review Ratings
+- OneStar, TwoStars, ThreeStars, FourStars, FiveStars
+
+##### Weather Conditions
+- Sunny, Rainy, Cloudy, Snowy
+
+##### Language Skill Levels
+- Beginner, Intermediate, Advanced, Fluent
+
+##### Temperature Units
+- Celsius, Fahrenheit
+
+##### Traffic Light Colors
+- Red, Yellow, Green
+
+##### Food Categories
+- Breakfast, Lunch, Dinner, Snack, Dessert
+
+
+## Please hit a like👍 if this package made your life 🚀
+
+# Thank You! ❤️
+
+I appreciate your time and attention. If you have any further questions or need assistance, feel free to [reach out](mailto:dev.ankitgada@gmail.com). Have a great day!
