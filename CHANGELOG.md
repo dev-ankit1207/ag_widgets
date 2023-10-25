@@ -1,3 +1,12 @@
+## 0.3.0
+- Added combineWordsWithSpecialChar Extension for String
+- Bug fixed in svgIconImage()
+
+## 0.2.0
+- Added GroupBy Extension for List
+- Added wrapWithBrackets Extension for String
+- Added New Enmus
+
 ## 0.1.0
 - Added View All Widget
 - Added Circle Widget

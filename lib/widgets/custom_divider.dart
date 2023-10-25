@@ -8,16 +8,17 @@ import 'package:nb_utils/nb_utils.dart';
 /// It offers different divider styles such as plain line, gradient line, dotted line, and gradient dotted line.
 /// This widget allows you to control the weight, color, endIndent, indent, colorList (for gradients), spacing (for dotted lines),
 /// and stroke cap of the divider.
-
 class CustomDivider extends StatelessWidget {
-  final double weight;
-  final Color color;
-  final DividerStyle style;
-  final double endIndent;
-  final double indent;
-  final List<Color>? colorList;
-  final int? spacing;
-  final StrokeCap strokeCap;
+  final double weight; // The thickness of the divider line.
+  final Color color; // The color of the divider line.
+  final DividerStyle
+      style; // The style of the divider (plain line, gradient line, dotted line, gradient dotted line).
+  final double endIndent; // The end indent of the divider.
+  final double indent; // The start indent of the divider.
+  final List<Color>?
+      colorList; // List of colors for gradient dividers (optional).
+  final int? spacing; // Spacing between dots for dotted dividers (optional).
+  final StrokeCap strokeCap; // The stroke cap style for the divider.
 
   CustomDivider({
     this.weight = 1.0,

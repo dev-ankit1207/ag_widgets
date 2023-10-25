@@ -4,14 +4,18 @@ import 'package:ag_widgets/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+/// The `NameInitialWidget` is a Flutter widget that displays the initials of a person's name within a container.
+/// It is often used as a placeholder for user avatars or profile pictures. The widget allows customization of
+/// the background color, text color, shape (circle or rectangle), and the maximum number of initials displayed.
 class NameInitialWidget extends StatelessWidget {
-  final String name;
-  final double height;
-  final double width;
-  final int maxInitials;
-  final List<Color>? backgroundColor;
-  final Color textColor;
-  final bool isCircle;
+  final String name; // The name used to generate initials.
+  final double height; // The height of the widget.
+  final double width; // The width of the widget.
+  final int maxInitials; // The maximum number of initials to display.
+  final List<Color>? backgroundColor; // List of background colors (optional).
+  final Color textColor; // The text color for the initials.
+  final bool
+      isCircle; // Indicates whether the widget should have a circular shape.
 
   NameInitialWidget({
     Key? key,

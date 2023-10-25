@@ -1,5 +1,5 @@
 // App theme options
-enum AppThemeEnum { Light, Dark, systemDefault }
+enum AppThemeEnum { Light, Dark, SystemDefault }
 
 // Screen orientation options
 enum ScreenOrientationEnum { Portrait, Landscape, Auto }
