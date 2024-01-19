@@ -1,5 +1,6 @@
 import 'package:ag_widgets/ag_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:nb_utils/nb_utils.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,22 +24,73 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('AG Widgets'),
+          elevation: 8,
         ),
-        body: SizedBox(
-          width: MediaQuery.of(context).size.width,
+        body: SingleChildScrollView(
+          padding: EdgeInsets.all(16),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               /// IconImage: This will help you to set the icon which are being loaded from assets or network.
-              Text("Example of IconImage()"),
-              SizedBox(height: 16),
-              "assets/images/placeholder.jpg".iconImage(),
+              Divider(thickness: 3, height: 16, color: Colors.black),
+              ...[
+                Text("Example of IconImage()", style: boldTextStyle(size: 24)),
+                SizedBox(height: 16),
+                "assets/images/placeholder.jpg"
+                    .iconImage(width: 140, height: 90, fit: BoxFit.fill),
+              ],
+              Divider(thickness: 3, height: 16, color: Colors.black),
+              Divider(thickness: 3, height: 0, color: Colors.black),
 
               SizedBox(height: 32),
               Text(
                 'Welcome to Custom Divider Example',
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 20),
+              CustomDivider(
+                weight: 2.0,
+                color: Colors.blue,
+                style: DividerStyle.gradientLine,
+                colorList: [Colors.blue, Colors.green],
+                endIndent: 16.0,
+                indent: 16.0,
+                strokeCap: StrokeCap.round,
+              ),
+              SizedBox(height: 20),
+              Text(
+                'This is a custom divider with a gradient line!',
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 20),
+              CustomDivider(
+                weight: 2.0,
+                color: Colors.blue,
+                style: DividerStyle.gradientLine,
+                colorList: [Colors.blue, Colors.green],
+                endIndent: 16.0,
+                indent: 16.0,
+                strokeCap: StrokeCap.round,
+              ),
+              SizedBox(height: 20),
+              Text(
+                'This is a custom divider with a gradient line!',
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 20),
+              CustomDivider(
+                weight: 2.0,
+                color: Colors.blue,
+                style: DividerStyle.gradientLine,
+                colorList: [Colors.blue, Colors.green],
+                endIndent: 16.0,
+                indent: 16.0,
+                strokeCap: StrokeCap.round,
+              ),
+              SizedBox(height: 20),
+              Text(
+                'This is a custom divider with a gradient line!',
                 style: TextStyle(fontSize: 18),
               ),
               SizedBox(height: 20),

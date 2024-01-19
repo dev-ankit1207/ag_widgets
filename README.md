@@ -120,8 +120,24 @@ CircleWidget({
 ```
 
 ------------
+### Number Ticker Widget
+The `wrapWithBracket` function is a utility function that takes an argument of the `BracketType` enum and wraps the string it's called on with brackets or quotes based on the specified `BracketType`. It provides a simple way to format strings within brackets or quotes as needed.
+#### Example
+```dart
+/// Create a Controller
+///Manages the overall number and allows real-time updates.
+NumberTickerController controller = NumberTickerController();
+```
+```dart
+NumberTickerWidget(
+  controller: controller,
+  initialNumber: 123.45,
+  textStyle: TextStyle(fontSize: 24, color: Colors.blue),
+  fractionDigits: 2,
+)
+```
 
-
+------------
 ### Wrap With Bracket Icon Image
 
 The `wrapWithBracket` function is a utility function that takes an argument of the `BracketType` enum and wraps the string it's called on with brackets or quotes based on the specified `BracketType`. It provides a simple way to format strings within brackets or quotes as needed.
@@ -135,8 +151,24 @@ print(wrappedText); // Outputs: 'Hello, World!'
 ```
 
 ------------
-
-
+### Percentage Extesnsion on `num`.
+#### 1. `asPercentageInDecimal()`
+Converts a numeric value to its percentage in decimal form
+#### Example
+```dart
+double value = 50;
+double percentageInDecimal = value.asPercentageInDecimal();
+// Output: 0.5
+```
+#### 2. `calculatePercentageOf(double percentage)`
+Calculates a specified percentage of a numeric value
+#### Example
+```dart
+double value = 50;
+double result = value.calculatePercentageOf(20);
+// Output: 10.0
+```
+------------
 #### Enums
 
 ##### App Theme

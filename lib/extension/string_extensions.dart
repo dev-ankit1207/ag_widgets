@@ -72,7 +72,8 @@ extension StringExtension on String {
         height: height ?? 24,
         width: width ?? 24,
         fit: fit ?? BoxFit.contain,
-        colorFilter: ColorFilter.mode(color ?? Colors.black, BlendMode.srcIn),
+        colorFilter:
+            color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
         placeholderBuilder: (context) => Placeholder(
           color: imagePlaceholderColor[
               Random().nextInt(imagePlaceholderColor.length)],
@@ -91,7 +92,8 @@ extension StringExtension on String {
       height: height ?? 24,
       width: width ?? 24,
       fit: fit ?? BoxFit.cover,
-      colorFilter: ColorFilter.mode(color ?? Colors.black, BlendMode.srcIn),
+      colorFilter:
+          color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
       placeholderBuilder: (context) {
         return Placeholder(
           color: imagePlaceholderColor[

@@ -39,3 +39,6 @@ enum TrafficLightEnum { Red, Yellow, Green }
 
 // Food categories
 enum FoodCategoryEnum { Breakfast, Lunch, Dinner, Snack, Dessert }
+
+// Mobile Application Modes
+enum AppMode { Debug, Release, Profile }
