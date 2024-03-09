@@ -47,8 +47,7 @@ class _DigitTicker extends StatelessWidget {
     this.duration = const Duration(milliseconds: 300),
     required this.controller,
     required this.initialNumber,
-  })  : scrollController = ScrollController(
-            initialScrollOffset: textStyle.fontSize! * (4 / 3) * initialNumber),
+  })  : scrollController = ScrollController(initialScrollOffset: textStyle.fontSize! * (4 / 3) * initialNumber),
         assert(initialNumber <= 9),
         assert(initialNumber >= 0),
         super(key: Key(controller.toString())) {
@@ -58,10 +57,7 @@ class _DigitTicker extends StatelessWidget {
   ///Scrolls to the positions of the new number.
   void onValueChanged() {
     if (scrollController.hasClients) {
-      scrollController.animateTo(
-          controller.number * textStyle.fontSize! * (4 / 3),
-          duration: duration,
-          curve: curve);
+      scrollController.animateTo(controller.number * textStyle.fontSize! * (4 / 3), duration: duration, curve: curve);
     }
   }
 
@@ -147,8 +143,7 @@ class NumberTickerWidget extends StatefulWidget {
 }
 
 ///The state of [NumberTickerWidget].
-class _NumberTickerWidgetState extends State<NumberTickerWidget>
-    with SingleTickerProviderStateMixin {
+class _NumberTickerWidgetState extends State<NumberTickerWidget> with SingleTickerProviderStateMixin {
   ///The animation controller for animating the removed or added [DigitTicker].
   late AnimationController animationController;
 
@@ -169,8 +164,7 @@ class _NumberTickerWidgetState extends State<NumberTickerWidget>
 
   @override
   void initState() {
-    animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
+    animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
 
     var num = widget.initialNumber;
     currentNum = num;
@@ -207,7 +201,7 @@ class _NumberTickerWidgetState extends State<NumberTickerWidget>
   }
 
   ///Updates the number when notified.
-  onNumberChanged() {
+  void onNumberChanged() {
     if (animationController.isAnimating) {
       animationController.notifyStatusListeners(AnimationStatus.completed);
     }
@@ -233,9 +227,7 @@ class _NumberTickerWidgetState extends State<NumberTickerWidget>
 
     for (int i = startIndex; i < numString.length; i++) {
       var digit = numString.codeUnitAt(i) - 48;
-      var oldDigit = longer
-          ? currentNumString.codeUnitAt(i - 1) - 48
-          : currentNumString.codeUnitAt(i) - 48;
+      var oldDigit = longer ? currentNumString.codeUnitAt(i - 1) - 48 : currentNumString.codeUnitAt(i) - 48;
 
       if (digit >= 0 && digit != oldDigit) {
         digitControllers[i]?.number = digit;
@@ -284,13 +276,10 @@ class _NumberTickerWidgetState extends State<NumberTickerWidget>
                       curve: widget.curve,
                       duration: widget.duration,
                       textStyle: widget.textStyle,
-                      initialNumber: i == currentNumString.length
-                          ? 0
-                          : (currentNumString.codeUnitAt(i) - 48)),
+                      initialNumber: i == currentNumString.length ? 0 : (currentNumString.codeUnitAt(i) - 48)),
             if (digitControllers.length > 1)
               SizedBox(
-                width:
-                    shorter ? (1 - animationController.value) * width : width,
+                width: shorter ? (1 - animationController.value) * width : width,
                 child: digitControllers.last == null
                     ? const Text(' ')
                     : _DigitTicker(
@@ -299,9 +288,7 @@ class _NumberTickerWidgetState extends State<NumberTickerWidget>
                         curve: widget.curve,
                         duration: widget.duration,
                         textStyle: widget.textStyle,
-                        initialNumber: currentNumString
-                                .codeUnitAt(currentNumString.length - 1) -
-                            48),
+                        initialNumber: currentNumString.codeUnitAt(currentNumString.length - 1) - 48),
               )
           ],
         );

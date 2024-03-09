@@ -1,3 +1,8 @@
+## 1.0.0
+
+- Added Number Ticker Widget for displaying real-time changes of a number.
+- Introduced extension for percentage calculation.
+
 ## 0.3.2+1
 
 - Added Number Ticker Widget for displaying real-time changes of a number.
