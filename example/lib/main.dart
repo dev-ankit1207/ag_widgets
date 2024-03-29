@@ -1,5 +1,4 @@
 import 'package:ag_widgets/ag_widgets.dart';
-import 'package:ag_widgets/widgets/number_ticker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -40,7 +39,8 @@ class _MyAppState extends State<MyApp> {
               ...[
                 Text("Example of IconImage()", style: boldTextStyle(size: 24)),
                 SizedBox(height: 16),
-                "assets/images/placeholder.jpg".iconImage(width: 140, height: 90, fit: BoxFit.fill),
+                "assets/images/placeholder.jpg"
+                    .iconImage(width: 140, height: 90, fit: BoxFit.fill),
               ],
               Divider(thickness: 3, height: 16, color: Colors.black),
               Divider(thickness: 3, height: 0, color: Colors.black),
@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(height: 20),
-                CustomDivider(
+                AgCustomDivider(
                   weight: 2.0,
                   color: Colors.blue,
                   style: DividerStyle.gradientLine,
@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(height: 20),
-                CustomDivider(
+                AgCustomDivider(
                   weight: 2.0,
                   color: Colors.blue,
                   style: DividerStyle.gradientLine,
@@ -82,7 +82,7 @@ class _MyAppState extends State<MyApp> {
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(height: 20),
-                CustomDivider(
+                AgCustomDivider(
                   weight: 2.0,
                   color: Colors.blue,
                   style: DividerStyle.gradientLine,
@@ -97,7 +97,7 @@ class _MyAppState extends State<MyApp> {
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(height: 20),
-                CustomDivider(
+                AgCustomDivider(
                   weight: 2.0,
                   color: Colors.blue,
                   style: DividerStyle.gradientLine,
@@ -119,13 +119,14 @@ class _MyAppState extends State<MyApp> {
                   'Number Ticket',
                   style: TextStyle(fontSize: 18),
                 ),
-                NumberTickerWidget(
+                AgNumberTickerWidget(
                   controller: numberTickerController,
                   initialNumber: 20,
                 ),
                 TextButton(
                   onPressed: () {
-                    numberTickerController.number = numberTickerController.value + 1;
+                    numberTickerController.number =
+                        numberTickerController.value + 1;
                   },
                   child: Text("Click me"),
                 )

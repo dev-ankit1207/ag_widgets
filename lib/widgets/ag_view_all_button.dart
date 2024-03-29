@@ -1,21 +1,23 @@
+// Import necessary packages
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-class ViewAllButton extends StatelessWidget {
-  final String title;
-  final String? viewAllText;
-  final Widget? titleWidget;
-  final int textSize;
-  final Color? textColor;
+// Define the ViewAllButton widget
+class AgViewAllButton extends StatelessWidget {
+  // Declare variables
+  final String title; // Title text for the button
+  final String? viewAllText; // Text for "View All" option
+  final Widget? titleWidget; // Widget to display as title
+  final int textSize; // Text size for the title
+  final Color? textColor; // Text color for the title
+  final TextStyle? titleTextStyle; // Text style for the title
+  final Function() onTap; // Function to execute on tap
+  final bool showViewAll; // Whether to show "View All" option
+  final EdgeInsets? padding; // Padding for the button
+  final bool hideViewAllIcon; // Whether to hide the arrow icon for "View All"
 
-  final TextStyle? titleTextStyle;
-  final Function() onTap;
-  final bool showViewAll;
-  final EdgeInsets? padding;
-  final bool hideViewAllIcon;
-
-  // Constructor for the ViewAllWidget
-  const ViewAllButton({
+  // Constructor for the AgViewAllButton class
+  const AgViewAllButton({
     Key? key,
     required this.title,
     required this.onTap,
@@ -31,12 +33,15 @@ class ViewAllButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Return a padding widget containing a row with the button elements
     return Padding(
       // Use provided padding or default to 16 on all sides
       padding: padding ?? const EdgeInsets.all(16),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment
+            .center, // Align elements horizontally at the center
+        crossAxisAlignment: CrossAxisAlignment
+            .center, // Align elements vertically at the center
         children: [
           Expanded(
             child: titleWidget ??
@@ -47,7 +52,7 @@ class ViewAllButton extends StatelessWidget {
                       boldTextStyle(size: textSize, color: textColor),
                 ),
           ),
-          if (showViewAll)
+          if (showViewAll) // If "View All" option is enabled
             GestureDetector(
               // Respond to the user's tap on this widget
               onTap: onTap,

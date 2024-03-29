@@ -1,18 +1,23 @@
+// Import necessary packages
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class TapEffectWidget extends StatefulWidget {
-  final Widget child;
-  final bool enableRipple;
-  final VoidCallback onTap;
-  final HitTestBehavior? behavior;
-  final bool excludeFromSemantics;
-  final DragStartBehavior dragStartBehavior;
-  final bool trackpadScrollCausesScale;
-  final Offset trackpadScrollToScaleFactor;
+// Define the AgTapEffect widget
+class AgTapEffect extends StatefulWidget {
+  // Declare variables
+  final Widget child; // Child widget on which tap effect is applied
+  final bool enableRipple; // Enable/disable ripple effect
+  final VoidCallback onTap; // Callback function for tap event
+  final HitTestBehavior? behavior; // Behavior for hit testing
+  final bool excludeFromSemantics; // Whether to exclude from semantics
+  final DragStartBehavior dragStartBehavior; // Drag start behavior
+  final bool
+      trackpadScrollCausesScale; // Whether trackpad scroll causes scaling
+  final Offset
+      trackpadScrollToScaleFactor; // Factor for trackpad scroll to scale
 
-  // Constructor with optional parameters for customization
-  const TapEffectWidget({
+  // Constructor for the AgTapEffect class
+  const AgTapEffect({
     Key? key,
     required this.child,
     this.enableRipple = true,
@@ -25,16 +30,20 @@ class TapEffectWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _TapEffectWidgetState createState() => _TapEffectWidgetState();
+  _AgTapEffectState createState() =>
+      _AgTapEffectState(); // Create state for the widget
 }
 
-class _TapEffectWidgetState extends State<TapEffectWidget> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+// Define the state for the AgTapEffect widget
+class _AgTapEffectState extends State<AgTapEffect>
+    with SingleTickerProviderStateMixin {
+  late AnimationController
+      _controller; // Animation controller for ripple effect
 
   @override
   void initState() {
     super.initState();
-    _init();
+    _init(); // Initialize the animation controller
   }
 
   // Initialize the animation controller
@@ -62,7 +71,8 @@ class _TapEffectWidgetState extends State<TapEffectWidget> with SingleTickerProv
       dragStartBehavior: widget.dragStartBehavior,
       trackpadScrollCausesScale: widget.trackpadScrollCausesScale,
       trackpadScrollToScaleFactor: widget.trackpadScrollToScaleFactor,
-      onTap: _handleTap, // Handle onTap event
+      onTap: _handleTap,
+      // Handle onTap event
       child: widget.enableRipple ? _buildRippleWidget() : _buildChild(),
     );
   }
@@ -70,17 +80,19 @@ class _TapEffectWidgetState extends State<TapEffectWidget> with SingleTickerProv
   // Builds the ripple effect widget using Listener
   Widget _buildRippleWidget() {
     return Listener(
-      onPointerDown: (_) => _controller.forward(),
-      onPointerUp: (_) => _controller.reverse(),
-      child: _buildChild(),
+      onPointerDown: (_) =>
+          _controller.forward(), // Animate ripple effect on pointer down
+      onPointerUp: (_) =>
+          _controller.reverse(), // Reverse animation on pointer up
+      child: _buildChild(), // Build child widget
     );
   }
 
   // Builds the child widget with optional scaling transformation
   Widget _buildChild() {
     return Transform.scale(
-      scale: 1 - _controller.value,
-      child: widget.child,
+      scale: 1 - _controller.value, // Scale based on animation value
+      child: widget.child, // Display child widget
     );
   }
 
@@ -91,7 +103,7 @@ class _TapEffectWidgetState extends State<TapEffectWidget> with SingleTickerProv
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller.dispose(); // Dispose animation controller
     super.dispose();
   }
 }

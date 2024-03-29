@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 // Custom Flutter widget for a circular container with various customization options
-class CircleWidget extends StatelessWidget {
+class AgCircleWidget extends StatelessWidget {
   final double size; // Diameter of the circular widget
   final Color? backgroundColor; // Background color of the circular widget
   final Color? borderColor; // Color of the border around the circular widget
@@ -11,7 +11,7 @@ class CircleWidget extends StatelessWidget {
   final List<BoxShadow>? shadows; // List of box shadows for the circular widget
 
   // Constructor for the CircleWidget class
-  CircleWidget({
+  AgCircleWidget({
     this.size = 50.0, // Default size is 50.0
     this.backgroundColor =
         Colors.transparent, // Default background color is transparent

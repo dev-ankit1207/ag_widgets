@@ -140,7 +140,7 @@ extension StringExtension on String {
     }
   }
 
-  // Combines words in a string with a special character and returns the result in lowercase.
+/*  // Combines words in a string with a special character and returns the result in lowercase.
   String combineWordsWithSpecialChar(String specialCharacter) {
     // Split the input string into a list of words.
     final List<String> words = this.split(' ');
@@ -150,5 +150,5 @@ extension StringExtension on String {
 
     // Convert the result to lowercase and return it.
     return result;
-  }
+  }*/
 }

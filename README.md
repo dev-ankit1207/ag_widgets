@@ -1,5 +1,3 @@
-
-
 # OVERVIEW
 
 ## ag_widgets
@@ -24,31 +22,14 @@ To start using the **ag_widgets** package in your Dart code, simply import it as
 import 'package:ag_widgets/ag_widgets.dart';
 ```
 
-### Start using the smart widgets in your project!
 
-### Icon Image
-The `IconImage` method allows you to set icons that are loaded from either local assets or a network source. It's a handy utility for displaying images with ease. Here's an example usage:
+## Let's explore the package's functions!
 
-```dart
-"assets/images/placeholder.jpg".iconImage(),
-```
+### Widgets
 
-------------
+### AgCustomDivider
 
-### SVG Icon Image
-
-The `svgIconImage` method allows you to set icons that are loaded from either local assets or a network source which are SVG. It's a handy utility for displaying images with ease. Here's an example usage:
-
-```dart
-"assets/images/placeholder.jpg".svgIconImage(),
-```
-
-------------
-
-### CustomDivider Widget
-
-The `CustomDivider` widget is a customizable divider in Flutter that can be used to separate content with various styles. It offers different divider styles such as plain line, gradient line, dotted line, and gradient dotted line. This widget allows you to control the weight, color, endIndent, indent, colorList (for gradients), spacing (for dotted lines), and stroke cap of the divider.
-#### `style` (DividerStyle)
+The `AgCustomDivider` widget is a customizable divider in Flutter that can be used to separate content with various styles. It offers different divider styles such as plain line, gradient line, dotted line, and gradient dotted line. This widget allows you to control the weight, color, endIndent, indent, colorList (for gradients), spacing (for dotted lines), and stroke cap of the divider.
 
 The style of the divider. It can be one of the following values:
 - `DividerStyle.plainLine`: A plain solid line.
@@ -59,7 +40,7 @@ The style of the divider. It can be one of the following values:
 
 #### Example
 ```dart
-CustomDivider(
+AgCustomDivider(
 weight: 2.0,
 color: Colors.blue,
 style: DividerStyle.gradientLine,
@@ -70,12 +51,11 @@ strokeCap: StrokeCap.round,
 )
 ```
 
-
 ------------
 
-### ViewAllButton
+### AgViewAllButton
 
-The `ViewAllButton` widget is a customizable Flutter widget designed to display a title and an optional `View All` button. It is often used to navigate to a list or view with more details. This widget provides flexibility in customizing the title, text size, text color, and the behavior of the `View All` button.
+The `AgViewAllButton` widget is a customizable Flutter widget designed to display a title and an optional `View All` button. It is often used to navigate to a list or view with more details. This widget provides flexibility in customizing the title, text size, text color, and the behavior of the `View All` button.
 All" text. (Default is false)
 
 1. Displaying a `View All` button below a section title.
@@ -85,7 +65,7 @@ All" text. (Default is false)
 #### Example
 
 ```dart
-ViewAllButton(
+AgViewAllButton(
 title: "Recent Articles",
 onTap: () {
 // Navigate to the list of recent articles
@@ -102,14 +82,15 @@ hideViewAllIcon: false,
 ```
 ------------
 
-### CircleWidget
 
-The `CircleWidget` class is a custom Flutter widget that provides a circular container with various customization options. It can be used as a decoration or background for other widgets. This documentation outlines the usage and properties of the `CircleWidget` class.
+### AgCircleWidget
+
+The `AgCircleWidget` class is a custom Flutter widget that provides a circular container with various customization options. It can be used as a decoration or background for other widgets. This documentation outlines the usage and properties of the `AgCircleWidget` class.
 
 #### Example
 
 ```dart
-CircleWidget({
+AgCircleWidget({
    this.size = 50.0,
    this.backgroundColor = Colors.transparent,
    this.borderColor,
@@ -118,9 +99,8 @@ CircleWidget({
    this.shadows,
 });
 ```
-
 ------------
-### Number Ticker Widget
+### AgNumberTickerWidget
 The `wrapWithBracket` function is a utility function that takes an argument of the `BracketType` enum and wraps the string it's called on with brackets or quotes based on the specified `BracketType`. It provides a simple way to format strings within brackets or quotes as needed.
 #### Example
 ```dart
@@ -129,19 +109,118 @@ The `wrapWithBracket` function is a utility function that takes an argument of t
 NumberTickerController controller = NumberTickerController();
 ```
 ```dart
-NumberTickerWidget(
+AgNumberTickerWidget(
   controller: controller,
   initialNumber: 123.45,
   textStyle: TextStyle(fontSize: 24, color: Colors.blue),
   fractionDigits: 2,
 )
 ```
+------------
+
+### AgCachedImage
+The `AgCachedImage` widget is a customizable Flutter widget used for displaying cached network images with optional placeholder and initials for fallback. It allows developers to specify various parameters such as image URL, dimensions, placeholder, whether to display initials if the image fails to load, and more.
+
+#### Example
+
+```dart
+AgCachedImage(
+  imageUrl: 'https://example.com/image.jpg',
+  height: 150,
+  width: 150,
+  fullName: 'John Doe',
+  isCircle: true,
+  isShowName: true,
+  placeHolder: CircularProgressIndicator(), // Optional placeholder widget
+  boxFit: BoxFit.cover, // Optional BoxFit for the image
+  placeHoldChild: Icon(Icons.person), // Optional placeholder child widget
+  textSize: 20, // Optional text size for name initials
+)
+```
+> [!IMPORTANT]  
+> The `AgCachedImage` widget internally uses the ExtendedImage widget from the extended_image package for network image loading and caching. It handles different load states such as loading, completed, and failed, and provides options for customization based on these states.
 
 ------------
-### Wrap With Bracket Icon Image
+
+### AgNameInitialWidget
+The `AgNameInitialWidget` is a Flutter widget designed to display the initials of a person's name within a container. It's commonly used as a placeholder for user avatars or profile pictures. This widget offers customization options for background color, text color, shape (circle or rectangle), and the maximum number of initials to display.
+
+#### Example
+
+```dart
+AgNameInitialWidget(
+  name: 'John Doe',
+  height: 60,
+  width: 60,
+  maxInitials: 2,
+  backgroundColor: [Colors.blue, Colors.green, Colors.red], // Optional background colors
+  textColor: Colors.white, // Optional text color
+  isCircle: true, // Whether to display as a circle
+  textSize: 24, // Optional text size for initials
+)
+```
+------------
+
+### AgTapEffect
+The `AgTapEffect` widget provides a simple way to add a tap effect, such as a ripple effect, to any child widget. It allows developers to easily customize the behavior of tap events, including enabling or disabling the ripple effect, specifying hit testing behavior, and defining drag start behavior.
+
+#### Example
+
+```dart
+AgTapEffect(
+  child: Container(
+    width: 200,
+    height: 50,
+    color: Colors.blue,
+    child: Center(
+      child: Text(
+        'Tap Me',
+        style: TextStyle(color: Colors.white),
+      ),
+    ),
+  ),
+  onTap: () {
+    // Action to perform on tap
+    print('Widget tapped!');
+  },
+  enableRipple: true, // Enable ripple effect
+  behavior: HitTestBehavior.opaque, // Set hit testing behavior
+);
+```
+
+### Extensions
+
+
+#### IconImage() Extension on String
+The `IconImage` method allows you to set icons that are loaded from either local assets or a network source. It's a handy utility for displaying images with ease. Here's an example usage:
+
+```dart
+"assets/images/placeholder.jpg".iconImage(),
+```
+
+------------
+
+#### svgIconImage() Extension on String
+
+The `svgIconImage` method allows you to set icons that are loaded from either local assets or a network source which are SVG. It's a handy utility for displaying images with ease. Here's an example usage:
+
+```dart
+"assets/images/placeholder.svg".svgIconImage(),
+```
+
+------------
+
+### wrapWithBracket() Extension on String
 
 The `wrapWithBracket` function is a utility function that takes an argument of the `BracketType` enum and wraps the string it's called on with brackets or quotes based on the specified `BracketType`. It provides a simple way to format strings within brackets or quotes as needed.
 
+The style of the brackets. It can be one of the following values:
+- `BracketType.Rounded`: ()
+- `BracketType.Square`: [].
+- `BracketType.Curly`: {}.
+- `BracketType.Angle`: <>.
+- `BracketType.SingleQuote`: ''.
+- `BracketType.DoubleQuote`: "".
 #### Example
 
 ```dart
@@ -151,7 +230,8 @@ print(wrappedText); // Outputs: 'Hello, World!'
 ```
 
 ------------
-### Percentage Extesnsion on `num`.
+### Extesnsion on `num`, `double` & `int`.
+
 #### 1. `asPercentageInDecimal()`
 Converts a numeric value to its percentage in decimal form
 #### Example
@@ -169,49 +249,24 @@ double result = value.calculatePercentageOf(20);
 // Output: 10.0
 ```
 ------------
+
 #### Enums
-
-##### App Theme
-- *Light, Dark, SystemDefault*
-
-##### Screen Orientation
-- *Portrait, Landscape, Auto*
-
-##### User Account Status
-- *Active, Inactive, Banned*
-
-##### Sorting Order
-- *Ascending, Descending*
-
-##### Task Priority
-- *Low, Medium, High, Urgent*
-
-##### Reminder Frequency
-- *Daily, Weekly, Monthly, Yearly*
-
-##### Gender
-- *Male, Female, Other, PreferNotToSay*
-
-##### Payment Status
-- *Paid, Pending, Failed, Refunded*
-
-##### Review Ratings
-- *OneStar, TwoStars, ThreeStars, FourStars, FiveStars*
-
-##### Weather Conditions
-- *Sunny, Rainy, Cloudy, Snowy*
-
-##### Language Skill Levels
-- *Beginner, Intermediate, Advanced, Fluent*
-
-##### Temperature Units
-- *Celsius, Fahrenheit*
-
-##### Traffic Light Colors
-- *Red, Yellow, Green*
-
-##### Food Categories
-- *Breakfast, Lunch, Dinner, Snack, Dessert*
+| Name | Values |
+|-------------|--------------|
+| AppTheme   | Light, Dark, SystemDefault |
+| ScreenOrientation | Portrait, Landscape, Auto |
+| UserAccountStatus | Active, Inactive, Banned |
+| SortingOrder | Ascending, Descending |
+| TaskPriority | Low, Medium, High, Urgent |
+| ReminderFrequency | Daily, Weekly, Monthly, Yearly |
+| Gender | Male, Female, Other, PreferNotToSay |
+| PaymentStatus | Paid, Pending, Failed, Refunded |
+| ReviewRatings | OneStar, TwoStars, ThreeStars, FourStars, FiveStars |
+| Weather Conditions | Sunny, Rainy, Cloudy, Snowy |
+| LanguageSkillLevels | Beginner, Intermediate, Advanced, Fluent |
+| TemperatureUnits | Celsius, Fahrenheit |
+| TrafficLightColors | Red, Yellow, Green |
+| FoodCategories | Breakfast, Lunch, Dinner, Snack, Dessert |
 
 
 ## Please hit a like👍 if this package made your life 🚀
