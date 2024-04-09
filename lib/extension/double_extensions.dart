@@ -1,6 +1,6 @@
 import 'package:nb_utils/nb_utils.dart';
 
-extension numExtension on num {
+extension NumExtension on num {
   double asPercentageInDecimal() {
     return this.validate() / 100.0;
   }
@@ -10,7 +10,7 @@ extension numExtension on num {
   }
 }
 
-extension doubleExtension on double {
+extension DoubleExtension on double {
   double asPercentageInDecimal() {
     return this.validate() / 100.0;
   }
@@ -20,7 +20,7 @@ extension doubleExtension on double {
   }
 }
 
-extension intExtension on int {
+extension IntExtension on int {
   int asPercentageInDecimal() {
     return this.validate() ~/ 100.0;
   }
