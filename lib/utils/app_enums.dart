@@ -1,44 +1,44 @@
 // App theme options
-enum AppThemeEnum { Light, Dark, SystemDefault }
+enum AgAppThemeEnum { Light, Dark, SystemDefault }
 
 // Screen orientation options
-enum ScreenOrientationEnum { Portrait, Landscape, Auto }
+enum AgScreenOrientationEnum { Portrait, Landscape, Auto }
 
 // User account status
-enum UserStatusEnum { Active, Inactive, Banned }
+enum AgUserStatusEnum { Active, Inactive, Banned }
 
 // Sorting order options
-enum SortingOrderEnum { Ascending, Descending }
+enum AgSortingOrderEnum { Ascending, Descending }
 
 // Task priority levels
-enum TaskPriorityEnum { Low, Medium, High, Urgent }
+enum AgTaskPriorityEnum { Low, Medium, High, Urgent }
 
 // Reminder frequency options
-enum ReminderTypeEnum { Daily, Weekly, Monthly, Yearly }
+enum AgReminderTypeEnum { Daily, Weekly, Monthly, Yearly }
 
 // Gender options
-enum GenderEnum { Male, Female, Other, PreferNotToSay }
+enum AgGenderEnum { Male, Female, Other, PreferNotToSay }
 
 // Payment status
-enum PaymentStatusEnum { Paid, Pending, Failed, Refunded }
+enum AgPaymentStatusEnum { Paid, Pending, Failed, Refunded }
 
 // Review ratings
-enum ReviewRatingEnum { OneStar, TwoStars, ThreeStars, FourStars, FiveStars }
+enum AgReviewRatingEnum { OneStar, TwoStars, ThreeStars, FourStars, FiveStars }
 
 // Weather conditions
-enum WeatherConditionEnum { Sunny, Rainy, Cloudy, Snowy }
+enum AgWeatherConditionEnum { Sunny, Rainy, Cloudy, Snowy }
 
 // Language skill levels
-enum LanguageSkillLevel { Beginner, Intermediate, Advanced, Fluent }
+enum AgLanguageSkillLevel { Beginner, Intermediate, Advanced, Fluent }
 
 // Temperature units
-enum TemperatureUnitEnum { Celsius, Fahrenheit }
+enum AgTemperatureUnitEnum { Celsius, Fahrenheit }
 
 // Traffic light colors
-enum TrafficLightEnum { Red, Yellow, Green }
+enum AgTrafficLightEnum { Red, Yellow, Green }
 
 // Food categories
-enum FoodCategoryEnum { Breakfast, Lunch, Dinner, Snack, Dessert }
+enum AgFoodCategoryEnum { Breakfast, Lunch, Dinner, Snack, Dessert }
 
 // Mobile Application Modes
-enum AppMode { Debug, Release, Profile }
+enum AgAppMode { Debug, Release, Profile }

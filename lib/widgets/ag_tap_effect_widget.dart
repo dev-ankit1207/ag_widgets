@@ -11,10 +11,8 @@ class AgTapEffect extends StatefulWidget {
   final HitTestBehavior? behavior; // Behavior for hit testing
   final bool excludeFromSemantics; // Whether to exclude from semantics
   final DragStartBehavior dragStartBehavior; // Drag start behavior
-  final bool
-      trackpadScrollCausesScale; // Whether trackpad scroll causes scaling
-  final Offset
-      trackpadScrollToScaleFactor; // Factor for trackpad scroll to scale
+  final bool trackpadScrollCausesScale; // Whether trackpad scroll causes scaling
+  final Offset trackpadScrollToScaleFactor; // Factor for trackpad scroll to scale
 
   // Constructor for the AgTapEffect class
   const AgTapEffect({
@@ -30,15 +28,12 @@ class AgTapEffect extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AgTapEffectState createState() =>
-      _AgTapEffectState(); // Create state for the widget
+  _AgTapEffectState createState() => _AgTapEffectState(); // Create state for the widget
 }
 
 // Define the state for the AgTapEffect widget
-class _AgTapEffectState extends State<AgTapEffect>
-    with SingleTickerProviderStateMixin {
-  late AnimationController
-      _controller; // Animation controller for ripple effect
+class _AgTapEffectState extends State<AgTapEffect> with SingleTickerProviderStateMixin {
+  late AnimationController _controller; // Animation controller for ripple effect
 
   @override
   void initState() {
@@ -80,10 +75,8 @@ class _AgTapEffectState extends State<AgTapEffect>
   // Builds the ripple effect widget using Listener
   Widget _buildRippleWidget() {
     return Listener(
-      onPointerDown: (_) =>
-          _controller.forward(), // Animate ripple effect on pointer down
-      onPointerUp: (_) =>
-          _controller.reverse(), // Reverse animation on pointer up
+      onPointerDown: (_) => _controller.forward(), // Animate ripple effect on pointer down
+      onPointerUp: (_) => _controller.reverse(), // Reverse animation on pointer up
       child: _buildChild(), // Build child widget
     );
   }

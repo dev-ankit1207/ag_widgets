@@ -39,8 +39,7 @@ class _MyAppState extends State<MyApp> {
               ...[
                 Text("Example of IconImage()", style: boldTextStyle(size: 24)),
                 SizedBox(height: 16),
-                "assets/images/placeholder.jpg"
-                    .iconImage(width: 140, height: 90, fit: BoxFit.fill),
+                "assets/images/placeholder.jpg".iconImage(width: 140, height: 90, fit: BoxFit.fill),
               ],
               Divider(thickness: 3, height: 16, color: Colors.black),
               Divider(thickness: 3, height: 0, color: Colors.black),
@@ -52,7 +51,7 @@ class _MyAppState extends State<MyApp> {
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(height: 20),
-                AgCustomDivider(
+                AgCustomDividerWidget(
                   weight: 2.0,
                   color: Colors.blue,
                   style: DividerStyle.gradientLine,
@@ -67,7 +66,7 @@ class _MyAppState extends State<MyApp> {
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(height: 20),
-                AgCustomDivider(
+                AgCustomDividerWidget(
                   weight: 2.0,
                   color: Colors.blue,
                   style: DividerStyle.dottedLine,
@@ -82,7 +81,7 @@ class _MyAppState extends State<MyApp> {
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(height: 20),
-                AgCustomDivider(
+                AgCustomDividerWidget(
                   weight: 2.0,
                   style: DividerStyle.gradientDottedLine,
                   colorList: [Colors.blue, Colors.green],
@@ -96,7 +95,7 @@ class _MyAppState extends State<MyApp> {
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(height: 20),
-                AgCustomDivider(
+                AgCustomDividerWidget(
                   weight: 2.0,
                   color: Colors.blue,
                   style: DividerStyle.plainLine,
@@ -123,8 +122,7 @@ class _MyAppState extends State<MyApp> {
                 ),
                 TextButton(
                   onPressed: () {
-                    numberTickerController.number =
-                        numberTickerController.value + 1;
+                    numberTickerController.number = numberTickerController.value + 1;
                   },
                   child: Text("Click me"),
                 )

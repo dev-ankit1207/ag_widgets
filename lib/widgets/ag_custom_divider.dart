@@ -8,19 +8,17 @@ import 'package:nb_utils/nb_utils.dart';
 /// It offers different divider styles such as plain line, gradient line, dotted line, and gradient dotted line.
 /// This widget allows you to control the weight, color, endIndent, indent, colorList (for gradients), spacing (for dotted lines),
 /// and stroke cap of the divider.
-class AgCustomDivider extends StatelessWidget {
+class AgCustomDividerWidget extends StatelessWidget {
   final double weight; // The thickness of the divider line.
   final Color color; // The color of the divider line.
-  final DividerStyle
-      style; // The style of the divider (plain line, gradient line, dotted line, gradient dotted line).
+  final DividerStyle style; // The style of the divider (plain line, gradient line, dotted line, gradient dotted line).
   final double endIndent; // The end indent of the divider.
   final double indent; // The start indent of the divider.
-  final List<Color>?
-      colorList; // List of colors for gradient dividers (optional).
+  final List<Color>? colorList; // List of colors for gradient dividers (optional).
   final int? spacing; // Spacing between dots for dotted dividers (optional).
   final StrokeCap strokeCap; // The stroke cap style for the divider.
 
-  AgCustomDivider({
+  AgCustomDividerWidget({
     this.weight = 1.0,
     this.color = Colors.black,
     this.style = DividerStyle.plainLine,
@@ -38,13 +36,7 @@ class AgCustomDivider extends StatelessWidget {
       height: weight,
       width: context.width(),
       child: CustomPaint(
-        painter: _DividerPainter(
-            color,
-            style,
-            LinearGradient(colors: colorList.validate()),
-            weight,
-            spacing,
-            strokeCap),
+        painter: _DividerPainter(color, style, LinearGradient(colors: colorList.validate()), weight, spacing, strokeCap),
       ),
     );
   }
@@ -58,8 +50,7 @@ class _DividerPainter extends CustomPainter {
   final int? _spacing;
   final StrokeCap _strokeCap;
 
-  _DividerPainter(Color color, this._style, this._gradient, this._weight,
-      this._spacing, this._strokeCap)
+  _DividerPainter(Color color, this._style, this._gradient, this._weight, this._spacing, this._strokeCap)
       : _paint = Paint()
           ..color = color
           ..strokeCap = _strokeCap
@@ -78,8 +69,7 @@ class _DividerPainter extends CustomPainter {
     }
   }
 
-  void _drawPlainLine(
-      Canvas canvas, Size size, double? weight, StrokeCap _strokeCap) {
+  void _drawPlainLine(Canvas canvas, Size size, double? weight, StrokeCap _strokeCap) {
     final startPoint = Offset(0, size.height / 2);
     final endPoint = Offset(size.width, size.height / 2);
     canvas.drawLine(startPoint, endPoint, _paint);

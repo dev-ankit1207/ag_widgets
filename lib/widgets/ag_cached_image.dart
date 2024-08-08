@@ -1,12 +1,9 @@
-// Import necessary packages
 import 'package:ag_widgets/widgets/ag_name_initial_widget.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-// Define a StatefulWidget for the cached image
 class AgCachedImage extends StatefulWidget {
-  // Declare variables
   final String? imageUrl; // URL of the image
   final double? height; // Height of the image
   final double? width; // Width of the image
@@ -16,9 +13,11 @@ class AgCachedImage extends StatefulWidget {
   final bool isShowName; // Whether to show the name initials
   final Widget? placeHolder; // Placeholder widget for the image
   final Widget? placeHoldChild; // Placeholder child widget
-  final int? textSize; // Text size for name initials
+  final double? textSize; // Text size for name initials
+  final double? radius;
+  final List<Color>? backgroundColorList;
+  final Color? backgroundColor;
 
-  // Constructor for the AgCachedImage class
   AgCachedImage({
     Key? key,
     required this.imageUrl,
@@ -30,29 +29,26 @@ class AgCachedImage extends StatefulWidget {
     this.isShowName = false,
     this.boxFit,
     this.placeHolder,
+    this.radius,
     this.placeHoldChild,
+    this.backgroundColorList,
+    this.backgroundColor,
   }) : super(key: key);
 
   @override
-  State<AgCachedImage> createState() =>
-      _AgCachedImageState(); // Create state for the widget
+  State<AgCachedImage> createState() => _CommonCachedImageState();
 }
 
-// Define the state for the AgCachedImage widget
-class _AgCachedImageState extends State<AgCachedImage> {
+class _CommonCachedImageState extends State<AgCachedImage> {
   @override
   Widget build(BuildContext context) {
-    // Determine border radius based on whether image is circular
-    final double borderRadius = widget.isCircle ? 250 : 0;
+    final double borderRadius = widget.isCircle ? 250 : (widget.radius ?? 0);
 
-    // Determine height and width of the image
     final double sizeHeight = widget.height ?? 50;
     final double sizeWidth = widget.width ?? 50;
 
-    // Define background color for the placeholder
-    final Color backgroundColor = Color(0xFFe4e9f0);
+    final Color backgroundColor = widget.backgroundColor ?? (widget.backgroundColorList!.first);
 
-    // Define placeholder widget
     Widget placeHolderWidget = widget.placeHolder ??
         PlaceHolderWidget(
           height: sizeHeight,
@@ -62,39 +58,25 @@ class _AgCachedImageState extends State<AgCachedImage> {
           borderRadius: widget.isCircle ? null : radius(borderRadius),
           shape: widget.isCircle ? BoxShape.circle : BoxShape.rectangle,
         );
-
-    // Return ExtendedImage widget with network image
     return ExtendedImage.network(
-      widget.imageUrl.validate(), // Validate and get the image URL
+      widget.imageUrl.validate(),
       height: sizeHeight,
-      // Set height of the image
       width: sizeWidth,
-      // Set width of the image
       fit: widget.boxFit ?? BoxFit.cover,
-      // Set BoxFit for the image
       cache: true,
-      // Enable caching of the image
       borderRadius: radius(borderRadius),
-      // Set border radius for the image
-      cacheHeight: sizeHeight.toInt(),
-      // Set cached height of the image
-      cacheWidth: sizeWidth.toInt(),
-      // Set cached width of the image
       handleLoadingProgress: true,
-      // Handle loading progress of the image
       enableLoadState: false,
-      // Disable load state
-      // Define loadStateChanged function to handle different load states
       loadStateChanged: (state) {
         switch (state.extendedImageLoadState) {
-          case LoadState.loading: // When image is in loading state
+          case LoadState.loading:
             return PlaceHolderWidget(
               height: sizeHeight,
               width: sizeWidth,
               color: backgroundColor,
               shape: widget.isCircle ? BoxShape.circle : BoxShape.rectangle,
             );
-          case LoadState.completed: // When image loading is completed
+          case LoadState.completed:
             if (state.wasSynchronouslyLoaded) {
               return state.completedWidget; // Return completed widget
             }
@@ -103,29 +85,20 @@ class _AgCachedImageState extends State<AgCachedImage> {
               // If show name initials is enabled
               return AgNameInitialWidget(
                 name: widget.fullName.validate(value: ""),
-                // Get validated full name
                 isCircle: widget.isCircle,
-                // Pass circle parameter
                 height: sizeHeight,
-                // Pass height parameter
                 width: sizeWidth,
-                // Pass width parameter
                 maxInitials: 2,
-                // Set maximum initials to display
                 textSize: widget.textSize,
-                // Pass text size parameter
-                backgroundColor: [
-                  backgroundColor
-                ], // Set background color for initials
+                textColor: Colors.white,
+                backgroundColor: widget.backgroundColorList ?? (widget.backgroundColor != null ? [widget.backgroundColor!] : null),
               );
             }
-            return placeHolderWidget; // Return placeholder widget if show name initials is disabled
+            return placeHolderWidget;
         }
         return null;
       },
-      shape: widget.isCircle
-          ? BoxShape.circle
-          : BoxShape.rectangle, // Define shape of the image
+      shape: widget.isCircle ? BoxShape.circle : BoxShape.rectangle,
     );
   }
 }

@@ -7,7 +7,6 @@ import 'package:nb_utils/nb_utils.dart';
 /// The `AgNameInitialWidget` is a Flutter widget that displays the initials of a person's name within a container.
 /// It is often used as a placeholder for user avatars or profile pictures. The widget allows customization of
 /// the background color, text color, shape (circle or rectangle), and the maximum number of initials displayed.
-
 class AgNameInitialWidget extends StatelessWidget {
   final String name; // The name used to generate initials.
   final double height; // The height of the widget.
@@ -15,11 +14,9 @@ class AgNameInitialWidget extends StatelessWidget {
   final int maxInitials; // The maximum number of initials to display.
   final List<Color>? backgroundColor; // List of background colors (optional).
   final Color textColor; // The text color for the initials.
-  final bool
-      isCircle; // Indicates whether the widget should have a circular shape.
-  final int? textSize; // The text size for the initials.
+  final bool isCircle; // Indicates whether the widget should have a circular shape.
+  final double? textSize;
 
-  // Constructor for the AgNameInitialWidget class
   AgNameInitialWidget({
     Key? key,
     required this.name,
@@ -34,61 +31,38 @@ class AgNameInitialWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get initials from the name
     String initials = _getInitials(name);
-    // Return container widget displaying the initials
     return Container(
-      width: height,
-      // Set width of the container
-      height: width,
-      // Set height of the container
+      width: width,
+      height: height,
       padding: EdgeInsets.all(4),
-      // Set padding for the container
       decoration: BoxDecoration(
-        // Define decoration for the container
-        color: backgroundColor != null
-            ? backgroundColor![Random.secure().nextInt(backgroundColor!.length)]
-            : imagePlaceholderColor[
-                Random.secure().nextInt(lightColors.length)],
-        shape: isCircle
-            ? BoxShape.circle
-            : BoxShape.rectangle, // Define shape of the container
-        border: Border.all(
-            color: Colors.white, width: 1), // Define border properties
-        borderRadius: isCircle ? null : radius(), // Define border radius
+        color: backgroundColor != null ? backgroundColor![Random.secure().nextInt(backgroundColor!.length)] : imagePlaceholderColor[Random.secure().nextInt(lightColors.length)],
+        shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
+        borderRadius: isCircle ? null : radius(),
       ),
-      // Display the initials at the center of the container
       child: Center(
-        child: FittedBox(
-          fit: BoxFit.fitWidth, // Define fit for the text
-          child: Text(
-            initials, // Display initials
-            style: boldTextStyle(
-                color: textColor,
-                weight: FontWeight.bold,
-                size: textSize), // Define text style
-          ),
+        child: Text(
+          initials,
+          style: TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: textSize),
         ),
       ),
     );
   }
 
-  // Function to get initials from the name
   String _getInitials(String name) {
-    List<String> nameParts = name.split(' '); // Split name into parts
+    List<String> nameParts = name.split(' ');
     String initials = '';
 
-    // Iterate through name parts to get initials
     for (String part in nameParts) {
       if (part.isNotEmpty) {
-        initials += part[0]
-            .toUpperCase(); // Append first character of each part to initials
+        initials += part[0].toUpperCase();
         if (initials.length >= maxInitials) {
-          break; // Break loop if maximum initials limit reached
+          break;
         }
       }
     }
 
-    return initials; // Return generated initials
+    return initials;
   }
 }

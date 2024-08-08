@@ -22,11 +22,8 @@ extension StringExtension on String {
         width: width ?? 24,
         fit: fit ?? BoxFit.contain,
         color: color,
-        errorBuilder:
-            (BuildContext context, Object error, StackTrace? stackTrace) =>
-                Placeholder(
-          color: imagePlaceholderColor[
-              Random().nextInt(imagePlaceholderColor.length)],
+        errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) => Placeholder(
+          color: imagePlaceholderColor[Random().nextInt(imagePlaceholderColor.length)],
           fallbackHeight: height ?? 24,
           fallbackWidth: width ?? 24,
           strokeWidth: 1,
@@ -44,8 +41,7 @@ extension StringExtension on String {
       fit: fit ?? BoxFit.cover,
       color: color,
       errorBuilder: (context, error, stackTrace) => Placeholder(
-        color: imagePlaceholderColor[
-            Random().nextInt(imagePlaceholderColor.length)],
+        color: imagePlaceholderColor[Random().nextInt(imagePlaceholderColor.length)],
         fallbackHeight: height ?? 24,
         fallbackWidth: width ?? 24,
         strokeWidth: 1,
@@ -72,11 +68,9 @@ extension StringExtension on String {
         height: height ?? 24,
         width: width ?? 24,
         fit: fit ?? BoxFit.contain,
-        colorFilter:
-            color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
+        colorFilter: color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
         placeholderBuilder: (context) => Placeholder(
-          color: imagePlaceholderColor[
-              Random().nextInt(imagePlaceholderColor.length)],
+          color: imagePlaceholderColor[Random().nextInt(imagePlaceholderColor.length)],
           fallbackHeight: height ?? 24,
           fallbackWidth: width ?? 24,
           strokeWidth: 1,
@@ -92,12 +86,10 @@ extension StringExtension on String {
       height: height ?? 24,
       width: width ?? 24,
       fit: fit ?? BoxFit.cover,
-      colorFilter:
-          color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
+      colorFilter: color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
       placeholderBuilder: (context) {
         return Placeholder(
-          color: imagePlaceholderColor[
-              Random().nextInt(imagePlaceholderColor.length)],
+          color: imagePlaceholderColor[Random().nextInt(imagePlaceholderColor.length)],
           fallbackHeight: height ?? 24,
           fallbackWidth: width ?? 24,
           strokeWidth: 1,
@@ -139,16 +131,4 @@ extension StringExtension on String {
         return "\"$this\"";
     }
   }
-
-/*  // Combines words in a string with a special character and returns the result in lowercase.
-  String combineWordsWithSpecialChar(String specialCharacter) {
-    // Split the input string into a list of words.
-    final List<String> words = this.split(' ');
-
-    // Join the words in the list using the provided special character.
-    final String result = words.join(specialCharacter);
-
-    // Convert the result to lowercase and return it.
-    return result;
-  }*/
 }

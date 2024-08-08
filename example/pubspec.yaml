@@ -17,8 +17,8 @@ dependencies:
     # See https://dart.dev/tools/pub/dependencies#version-constraints
     path: ../
 
-  cupertino_icons: ^1.0.6
-  nb_utils: ^6.0.7
+  cupertino_icons: ^1.0.8
+  nb_utils: ^7.0.3
 
 dev_dependencies:
   integration_test:

@@ -38,18 +38,15 @@ class AgViewAllButton extends StatelessWidget {
       // Use provided padding or default to 16 on all sides
       padding: padding ?? const EdgeInsets.all(16),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment
-            .center, // Align elements horizontally at the center
-        crossAxisAlignment: CrossAxisAlignment
-            .center, // Align elements vertically at the center
+        mainAxisAlignment: MainAxisAlignment.center, // Align elements horizontally at the center
+        crossAxisAlignment: CrossAxisAlignment.center, // Align elements vertically at the center
         children: [
           Expanded(
             child: titleWidget ??
                 Text(
                   // Display the title, validating for null or empty string
                   title.validate(),
-                  style: titleTextStyle ??
-                      boldTextStyle(size: textSize, color: textColor),
+                  style: titleTextStyle ?? boldTextStyle(size: textSize, color: textColor),
                 ),
           ),
           if (showViewAll) // If "View All" option is enabled
@@ -59,12 +56,10 @@ class AgViewAllButton extends StatelessWidget {
               child: Row(
                 children: [
                   // Display "View All" text with provided style or default
-                  Text(viewAllText ?? "View All",
-                      style: secondaryTextStyle(size: 12)),
+                  Text(viewAllText ?? "View All", style: secondaryTextStyle(size: 12)),
                   if (!hideViewAllIcon)
                     // Optionally display an arrow icon (if not hidden)
-                    Icon(Icons.arrow_forward_ios_rounded,
-                        color: textSecondaryColorGlobal, size: 10),
+                    Icon(Icons.arrow_forward_ios_rounded, color: textSecondaryColorGlobal, size: 10),
                 ],
               ),
             ),
